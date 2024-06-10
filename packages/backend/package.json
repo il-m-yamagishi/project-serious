@@ -1,0 +1,22 @@
+{
+  "name": "@m-yamagishi/project-serious-backend",
+  "version": "0.0.1",
+  "description": "Project SERIOUS Backend",
+  "main": "index.js",
+  "type": "module",
+  "author": "Masaru Yamagishi <akai_inu@live.jp>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "npx tsx src/server.ts"
+  },
+  "dependencies": {
+    "@m-yamagishi/project-serious-core": "*",
+    "bufferutil": "^4.0.8",
+    "winston": "^3.13.0",
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "@types/ws": "^8.5.10"
+  }
+}

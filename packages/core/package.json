@@ -1,0 +1,15 @@
+{
+  "name": "@m-yamagishi/project-serious-core",
+  "version": "0.0.1",
+  "description": "Project SERIOUS Core",
+  "main": "src/index.ts",
+  "type": "module",
+  "author": "Masaru Yamagishi <akai_inu@live.jp>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@babylonjs/core": "^7.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2"
+  }
+}

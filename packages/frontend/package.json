@@ -1,0 +1,21 @@
+{
+  "name": "@m-yamagishi/project-serious-frontend",
+  "version": "0.0.1",
+  "description": "Project SERIOUS Frontend",
+  "main": "index.js",
+  "type": "module",
+  "author": "Masaru Yamagishi <akai_inu@live.jp>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^7.10.1",
+    "@m-yamagishi/project-serious-core": "*"
+  },
+  "devDependencies": {
+    "vite": "^5.2.13"
+  }
+}

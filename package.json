@@ -1,0 +1,25 @@
+{
+  "name": "@m-yamagishi/project-serious",
+  "version": "0.0.1",
+  "description": "Project SERIOUS",
+  "keywords": [
+    "Babylon.js",
+    "TypeScript",
+    "WebGL",
+    "FPS",
+    "Game"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "author": "Masaru Yamagishi <akai_inu@live.jp>",
+  "license": "Apache-2.0",
+  "private": true,
+  "packageManager": "npm@10.8.1",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.8.0",
+    "typescript": "5.4.5"
+  }
+}
