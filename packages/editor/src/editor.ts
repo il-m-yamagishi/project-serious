@@ -4,6 +4,7 @@
 
 import { createEngineAsync } from "@m-yamagishi/project-serious-core/src/createEngineAsync";
 import { EditorScene } from "./editor-scene";
+import { GizmoManager } from "@babylonjs/core/Gizmos/gizmoManager";
 
 export class Editor {
   constructor(private readonly canvas: HTMLCanvasElement) {
@@ -12,6 +13,12 @@ export class Editor {
   async start() {
     const engine = await createEngineAsync(this.canvas);
     const scene = new EditorScene(engine);
+
+    const gizmoManager = new GizmoManager(scene);
+    gizmoManager.positionGizmoEnabled = true;
+    // gizmoManager.rotationGizmoEnabled = true;
+    // gizmoManager.scaleGizmoEnabled = true;
+    gizmoManager.attachableMeshes = scene.meshes;
 
     const render = () => {
       scene.render();

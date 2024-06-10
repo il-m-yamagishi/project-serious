@@ -2,25 +2,24 @@
  * @license Apache-2.0
  */
 
-import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
 import type { AbstractEngine } from "@babylonjs/core/Engines/abstractEngine";
-import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder";
-import { Scene } from "@babylonjs/core/scene";
-import { Vector3 } from "@babylonjs/core/Maths/math.vector";
-import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera";
-import { SkyMaterial } from "@babylonjs/materials/sky/skyMaterial";
-import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
 import { CascadedShadowGenerator } from "@babylonjs/core/Lights/Shadows/cascadedShadowGenerator";
 import "@babylonjs/core/Lights/Shadows/shadowGeneratorSceneComponent";
+import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
+import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
+import { Vector3 } from "@babylonjs/core/Maths/math.vector";
+import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder";
 import "@babylonjs/core/Rendering/depthRendererSceneComponent";
+import { Scene } from "@babylonjs/core/scene";
+import { SkyMaterial } from "@babylonjs/materials/sky/skyMaterial";
+import { GodCamera } from "@m-yamagishi/project-serious-core/src/inputs/godCamera/godCamera";
 
 export class EditorScene extends Scene {
   constructor(engine: AbstractEngine) {
     super(engine);
 
-
     const light = new DirectionalLight("MainLight", new Vector3(0.1, -0.7, 0.2), this);
-    const camera = new FreeCamera("MainCamera", new Vector3(0, 5, -10), this);
+    const camera = new GodCamera("MainCamera", new Vector3(0, 5, -10), this);
     camera.setTarget(Vector3.Zero());
     camera.attachControl(true);
 
