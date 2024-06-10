@@ -2,23 +2,13 @@
  * @license Apache-2.0
  */
 
-import { Scene } from "@babylonjs/core/scene";
-import { createEngineAsync } from "./createEngineAsync";
+import { Application } from "./application";
 
-window.addEventListener("load", async () => {
+function main() {
   const canvas = document.getElementById("gameCanvas") as HTMLCanvasElement;
-  const engine = await createEngineAsync(canvas);
-  const scene = new Scene(engine);
+  const app = new Application(canvas);
 
-  // const listener = await connect(import.meta.env.VITE_WEBSOCKET_URL);
+  app.start();
+}
 
-  const render = () => {
-    scene.render();
-  };
-
-  engine.runRenderLoop(render);
-  window.addEventListener("beforeunload", () => {
-    engine.stopRenderLoop(render);
-    engine.dispose();
-  }, { once: true });
-}, { once: true });
+main();

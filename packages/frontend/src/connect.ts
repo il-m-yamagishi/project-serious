@@ -6,10 +6,10 @@ import { WebSocket } from "ws";
 import { Observable } from "@babylonjs/core/Misc/observable";
 
 export class WebSocketListener {
-  public readonly onConnectObservable = new Observable<null>();
+  public readonly onConnectObservable = new Observable();
   public readonly onErrorObservable = new Observable<Error>();
   public readonly onMessageObservable = new Observable<string>();
-  public readonly onCloseObservable = new Observable<null>();
+  public readonly onCloseObservable = new Observable();
 
   public constructor(ws: UserWebSocket) {
     ws.on("open", () => {

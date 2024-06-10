@@ -5,6 +5,11 @@
 import { Engine } from "@babylonjs/core/Engines/engine";
 import { WebGPUEngine } from "@babylonjs/core/Engines/webgpuEngine";
 
+/**
+ * Create a Babylon.js engine asynchronously
+ * @param canvas Target canvas
+ * @returns engine
+ */
 export async function createEngineAsync(canvas: HTMLCanvasElement) {
   let engine: Engine | WebGPUEngine;
   if (await WebGPUEngine.IsSupportedAsync) {
