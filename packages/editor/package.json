@@ -1,7 +1,7 @@
 {
-  "name": "@m-yamagishi/project-serious-frontend",
+  "name": "@m-yamagishi/project-serious-editor",
   "version": "0.0.1",
-  "description": "Project SERIOUS Frontend",
+  "description": "Project SERIOUS Editor",
   "main": "index.js",
   "type": "module",
   "author": "Masaru Yamagishi <akai_inu@live.jp>",
@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "@babylonjs/core": "^7.10.1",
-    "@m-yamagishi/project-serious-core": "file:../project-serious-core",
-    "ws": "^8.17.0"
+    "@babylonjs/loaders": "^7.10.1",
+    "@babylonjs/materials": "^7.10.1",
+    "@m-yamagishi/project-serious-core": "file:../project-serious-core"
   },
   "devDependencies": {
-    "@types/ws": "^8.5.10",
     "vite": "^5.2.13"
   }
 }

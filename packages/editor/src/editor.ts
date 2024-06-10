@@ -2,16 +2,16 @@
  * @license Apache-2.0
  */
 
-import { Scene } from "@babylonjs/core/scene";
 import { createEngineAsync } from "@m-yamagishi/project-serious-core/src/createEngineAsync";
+import { EditorScene } from "./editor-scene";
 
-export class Application {
-  public constructor(private readonly canvas: HTMLCanvasElement) {
+export class Editor {
+  constructor(private readonly canvas: HTMLCanvasElement) {
   }
 
-  public async start() {
+  async start() {
     const engine = await createEngineAsync(this.canvas);
-    const scene = new Scene(engine);
+    const scene = new EditorScene(engine);
 
     const render = () => {
       scene.render();

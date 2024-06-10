@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@babylonjs/core": "^7.10.1",
-    "@m-yamagishi/project-serious-core": "*",
+    "@m-yamagishi/project-serious-core": "file:../project-serious-core",
     "bufferutil": "^4.0.8",
     "winston": "^3.13.0",
     "ws": "^8.17.0"
