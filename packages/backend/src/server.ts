@@ -30,6 +30,13 @@ wss.on("connection", (socket) => {
   socket.on("pong", () => {
     socket.isAlive = true;
   });
+  socket.on("message", (data, isBinary) => {
+    if (isBinary) {
+      logger.info("Received binary data");
+    } else {
+      logger.info("Received text data", data);
+    }
+  });
 });
 
 const interval = setInterval(() => {

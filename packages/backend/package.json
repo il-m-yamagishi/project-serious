@@ -10,6 +10,7 @@
     "start": "npx tsx src/server.ts"
   },
   "dependencies": {
+    "@babylonjs/core": "^7.10.1",
     "@m-yamagishi/project-serious-core": "*",
     "bufferutil": "^4.0.8",
     "winston": "^3.13.0",
