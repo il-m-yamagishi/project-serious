@@ -3,9 +3,10 @@
  */
 
 import type { Vector3 } from "../math";
-import type { Node } from "../node";
+import type { Node } from "../scene";
 
 export type TransformNode = Node & {
+  readonly _NAME: "TransformNode" | string,
   position: Vector3,
   rotation: Vector3,
   scaling: Vector3,

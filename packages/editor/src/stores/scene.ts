@@ -4,11 +4,21 @@
 
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import type { Scene } from "../types/scene";
+import type { Scene } from "@m-yamagishi/project-serious-core/src/types/scene";
 
-export const useSceneStore = create<Scene>()(
+type State = {
+  scene: Scene,
+};
+
+type Action = {
+  addComponent: (component: Scene['components'][0]) => void,
+};
+
+export const useSceneStore = create<State & Action>()(
   immer((set) => ({
-    name: "Main Scene",
-    components: [],
+    scene: {
+      components: [],
+    },
+    addComponent: (component) => { set((state) => { state.scene.components.push(component); }); },
   })),
 );

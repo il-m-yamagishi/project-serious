@@ -9,6 +9,7 @@ import type { Material } from "./material";
 import type { BaseTexture } from "./textures/baseTexture";
 
 export type StandardMaterial = Material & {
+  readonly _NAME: "StandardMaterial" | string,
   diffuseTexture?: BaseTexture,
   ambienteTexture?: BaseTexture,
   opacityTexture?: BaseTexture,

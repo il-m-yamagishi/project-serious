@@ -2,7 +2,10 @@
  * @license Apache-2.0
  */
 
-export type Material = {
+import type { FileReference } from "../fileReference"
+
+export type Material = FileReference | {
+  readonly _NAME: "Material" | string,
   id: string,
   name: string,
   alpha?: number,
