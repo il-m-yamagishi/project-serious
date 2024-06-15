@@ -19,7 +19,6 @@ export type Node = SceneComponent & {
   metadata?: any,
 };
 
-
 export type Scene = {
   name?: string,
   useDelayedTextureLoading?: boolean,

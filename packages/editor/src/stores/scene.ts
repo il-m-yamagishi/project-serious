@@ -4,14 +4,14 @@
 
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import type { Scene } from "@m-yamagishi/project-serious-core/src/types/scene";
+import type { Scene, SceneComponent } from "@m-yamagishi/project-serious-core/src/types/scene";
 
 type State = {
   scene: Scene,
 };
 
 type Action = {
-  addComponent: (component: Scene['components'][0]) => void,
+  addComponent: <T extends SceneComponent>(component: T) => void,
 };
 
 export const useSceneStore = create<State & Action>()(

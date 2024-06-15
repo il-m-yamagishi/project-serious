@@ -39,10 +39,12 @@ export async function createEngineAsync(canvas?: HTMLCanvasElement) {
     engine.resize();
   };
 
-  window.addEventListener("resize", resize);
-  window.addEventListener("beforeunload", () => {
-    window.removeEventListener("resize", resize);
-  }, { once: true });
+  if (window) {
+    window.addEventListener("resize", resize);
+    window.addEventListener("beforeunload", () => {
+      window.removeEventListener("resize", resize);
+    }, { once: true });
+  }
 
   return engine;
 }
