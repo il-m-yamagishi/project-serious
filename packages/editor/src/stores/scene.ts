@@ -8,10 +8,12 @@ import type { Scene, SceneComponent } from "@m-yamagishi/project-serious-core/sr
 
 type State = {
   scene: Scene,
+  activeComponent: SceneComponent | null,
 };
 
 type Action = {
   addComponent: <T extends SceneComponent>(component: T) => void,
+  setActiveComponent: (activeComponent: SceneComponent) => void,
 };
 
 export const useSceneStore = create<State & Action>()(
@@ -19,6 +21,8 @@ export const useSceneStore = create<State & Action>()(
     scene: {
       components: [],
     },
+    activeComponent: null,
     addComponent: (component) => { set((state) => { state.scene.components.push(component); }); },
+    setActiveComponent: (activeComponent) => { set(() => ({ activeComponent })); },
   })),
 );

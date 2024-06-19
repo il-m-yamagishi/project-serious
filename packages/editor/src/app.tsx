@@ -5,14 +5,15 @@
 import { SceneView } from "./components/sceneView";
 import { ComponentTree } from "./components/componentTree";
 import { Buttons } from "./components/buttons";
+import { ActiveComponent } from "./components/activeComponent";
 
 export function App() {
   return (
-    <div>
-      <h1>React BabylonJS Editor</h1>
+    <>
       <SceneView />
       <ComponentTree />
+      <ActiveComponent />
       <Buttons />
-    </div>
+    </>
   );
 }
