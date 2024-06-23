@@ -7,7 +7,7 @@ import type { AbstractMesh } from "./abstractMesh";
 
 export type Box = AbstractMesh & {
   readonly _NAME: "Box",
-  initialOptions: {
+  initialOptions?: {
     size?: number,
     width?: number,
     height?: number,

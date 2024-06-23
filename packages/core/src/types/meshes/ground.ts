@@ -6,7 +6,7 @@ import type { AbstractMesh } from "./abstractMesh";
 
 export type Ground = AbstractMesh & {
   readonly _NAME: "Ground",
-  initialOptions: {
+  initialOptions?: {
     width?: number,
     height?: number,
     subdivisions?: number,

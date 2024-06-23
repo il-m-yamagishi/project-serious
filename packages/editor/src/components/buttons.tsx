@@ -5,16 +5,17 @@
 import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
 import { Vector3 } from "@babylonjs/core/Maths/math.vector";
 import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder";
-import type { DirectionalLight as DirectionalLightType } from "@m-yamagishi/project-serious-core/src/types/lights/directionalLight";
 import type { SkyMaterial as SkyMaterialType } from "@m-yamagishi/project-serious-core/src/types/materials/skyMaterial";
 import type { Box as BoxType } from "@m-yamagishi/project-serious-core/src/types/meshes/box";
 import type { Ground as GroundType } from "@m-yamagishi/project-serious-core/src/types/meshes/ground";
 import { useCallback } from "react";
+import { useEditSceneStore } from "../stores/editScene";
 import { useEngineStore } from "../stores/engine";
 import { useSceneStore } from "../stores/scene";
 import { SkyMaterial } from "@babylonjs/materials/sky";
 
 export function Buttons() {
+  const setComponent = useEditSceneStore((state) => state.setComponent);
   const addComponent = useSceneStore((state) => state.addComponent);
   const currentScene = useEngineStore((state) => state.currentScene);
 
@@ -23,16 +24,22 @@ export function Buttons() {
       return;
     }
 
-    addComponent<DirectionalLightType>({
-      _NAME: "DirectionalLight",
-      name: "MainLight",
-      position: { x: 0, y: 1, z: 0 },
-      direction: { x: 0, y: -1, z: 0 },
-      id: crypto.randomUUID(),
-    });
+    const id = crypto.randomUUID();
+    const component = {
+      id,
+      className: "DirectionalLight",
+      name: `DirectionalLight_${id}`,
+      position: [0, 1, 0],
+      direction: [0, -1, 0],
+    }
 
-    new DirectionalLight("MainLight", Vector3.Down(), currentScene);
-  }, [addComponent, currentScene]);
+    setComponent(id, component);
+
+    const light = new DirectionalLight(`DirectionalLight_${id}`, Vector3.Down(), currentScene);
+    light.id = id;
+    light.position = Vector3.FromArray(component.position);
+    light.direction = Vector3.FromArray(component.direction);
+  }, [setComponent, currentScene]);
 
   const addGround = useCallback(() => {
     if (!currentScene) {
@@ -121,11 +128,11 @@ export function Buttons() {
   }, [addComponent, currentScene]);
 
   return (
-    <div>
-      <button type="button" onClick={addDirectionalLight}>Add DirectionalLight</button>
-      <button type="button" onClick={addGround}>Add Ground</button>
-      <button type="button" onClick={addBox}>Add Box</button>
-      <button type="button" onClick={addSky}>Add Sky</button>
-    </div>
+    <ul>
+      <li><button type="button" onClick={addDirectionalLight}>Add DirectionalLight</button></li>
+      <li><button type="button" onClick={addGround}>Add Ground</button></li>
+      <li><button type="button" onClick={addBox}>Add Box</button></li>
+      <li><button type="button" onClick={addSky}>Add Sky</button></li>
+    </ul>
   );
 }

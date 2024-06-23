@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/lights/directionalLight",
+  "type": "object",
+  "title": "DirectionalLight",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "title": "ID",
+      "description": "Unique identifier"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "description": "Name"
+    },
+    "className": {
+      "const": "DirectionalLight",
+      "title": "Class Name",
+      "description": "Class Name"
+    },
+    "diffuse": {
+      "$ref": "../math/color3.schema.json",
+      "title": "Diffuse color",
+      "default": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "specular": {
+      "$ref": "../math/color3.schema.json",
+      "title": "Specular color",
+      "default": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "falloffType": {
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "DEFAULT",
+          "description": "Falloff Default: light is falling off following the material specification:\nstandard material is using standard falloff whereas pbr material can request special falloff per materials."
+        },
+        {
+          "const": 1,
+          "title": "PHYSICAL",
+          "description": "Falloff Physical: light is falling off following the inverse squared distance law."
+        },
+        {
+          "const": 2,
+          "title": "GLTF",
+          "description": "Falloff gltf: light is falling off as described in the gltf moving to PBR document\nto enhance interoperability with other engines."
+        },
+        {
+          "const": 3,
+          "title": "STANDARD",
+          "description": "Falloff Standard: light is falling off like in the standard material\nto enhance interoperability with other materials."
+        }
+      ],
+      "default": 0
+    },
+    "intensity": {
+      "type": "number",
+      "title": "Intensity",
+      "minimum": 0.0,
+      "default": 1.0
+    },
+    "direction": {
+      "$ref": "../math/vector3.schema.json",
+      "title": "Direction",
+      "default": [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "position": {
+      "$ref": "../math/vector3.schema.json",
+      "title": "Position",
+      "default": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    "autoCalcShadowZBounds": {
+      "type": "boolean",
+      "title": "Auto Calculate Shadow Z Bounds",
+      "default": false
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "className",
+    "diffuse",
+    "specular",
+    "falloffType",
+    "intensity",
+    "direction",
+    "position",
+    "autoCalcShadowZBounds"
+  ]
+}

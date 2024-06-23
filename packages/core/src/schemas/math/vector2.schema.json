@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/math/vector2",
+  "type": "array",
+  "title": "Vector2",
+  "description": "An array of two numbers representing a vector [x, y].",
+  "items": {
+    "type": "number"
+  },
+  "minItems": 2,
+  "maxItems": 2
+}

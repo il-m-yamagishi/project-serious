@@ -3,11 +3,10 @@
  */
 
 import type { Vector3 } from "../math";
+import type { Material } from "./material";
 
-export type SkyMaterial = {
+export type SkyMaterial = Material & {
   readonly _NAME: "SkyMaterial",
-  id: string,
-  name: string,
   luminance?: number,
   turbidity?: number,
   rayleigh?: number,

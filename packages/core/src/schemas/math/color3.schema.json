@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/math/color3",
+  "type": "array",
+  "title": "Color3",
+  "description": "An array of three numbers representing a color [r, g, b].",
+  "items": {
+    "type": "number",
+    "minimum": 0.0,
+    "maximum": 1.0
+  },
+  "minItems": 3,
+  "maxItems": 3
+}
